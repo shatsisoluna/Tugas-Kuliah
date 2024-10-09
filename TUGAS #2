@@ -1,1 +1,209 @@
-testing
+# 2211102158-KhansaSetiifiaAziza
+program LoginFeature;
+
+var
+  email, password: string;
+  loginSuccess: boolean;
+
+procedure Login;
+begin
+  writeln('Login');
+  write('Masukkan Email: ');
+  readln(email);
+  
+  write('Masukkan Password: ');
+  readln(password);
+
+  // Verifikasi email dan password sederhana
+  if (email = 'user@example.com') and (password = 'password123') then
+  begin
+    loginSuccess := true;
+    writeln('Login berhasil!');
+  end
+  else
+  begin
+    loginSuccess := false;
+    writeln('Login gagal! Email atau password salah.');
+  end;
+end;
+
+begin
+  Login;
+  
+  if loginSuccess then
+    writeln('Selamat datang, ', email)
+  else
+    writeln('Silakan coba lagi.');
+end.
+
+
+# 2211102151-Shatsi Soluna
+program TambahDataWisata;
+
+type
+  TWisata = record
+    name: string;
+    category: string;
+    location: string;
+    description: string;
+    rating: real;
+    images: string;
+    maps: string;
+  end;
+
+var
+  wisata: TWisata;
+
+procedure TambahWisata;
+begin
+  writeln('Tambah Data Wisata');
+
+  write('Masukkan Nama Wisata: ');
+  readln(wisata.name);
+
+  write('Masukkan Kategori Wisata: ');
+  readln(wisata.category);
+
+  write('Masukkan Lokasi Wisata: ');
+  readln(wisata.location);
+
+  write('Masukkan Deskripsi Wisata: ');
+  readln(wisata.description);
+
+  write('Masukkan Rating Wisata (1-5): ');
+  readln(wisata.rating);
+
+  write('Masukkan URL Gambar Wisata: ');
+  readln(wisata.images);
+
+  write('Masukkan URL Peta Wisata: ');
+  readln(wisata.maps);
+
+  writeln;
+  writeln('Data Wisata yang ditambahkan:');
+  writeln('Nama: ', wisata.name);
+  writeln('Kategori: ', wisata.category);
+  writeln('Lokasi: ', wisata.location);
+  writeln('Deskripsi: ', wisata.description);
+  writeln('Rating: ', wisata.rating:1:1);
+  writeln('URL Gambar: ', wisata.images);
+  writeln('URL Peta: ', wisata.maps);
+end;
+
+begin
+  TambahWisata;
+end.
+
+
+# Febrilia Ananda
+program UpdateDataWisata;
+
+type
+  TWisata = record
+    name: string;
+    category: string;
+    location: string;
+    description: string;
+    rating: real;
+    images: string;
+    maps: string;
+  end;
+
+var
+  wisata: TWisata;
+
+procedure TambahWisata;
+begin
+  writeln('Tambah Data Wisata');
+  
+  write('Masukkan Nama Wisata: ');
+  readln(wisata.name);
+  
+  write('Masukkan Kategori Wisata: ');
+  readln(wisata.category);
+  
+  write('Masukkan Lokasi Wisata: ');
+  readln(wisata.location);
+  
+  write('Masukkan Deskripsi Wisata: ');
+  readln(wisata.description);
+  
+  write('Masukkan Rating Wisata (1-5): ');
+  readln(wisata.rating);
+  
+  write('Masukkan URL Gambar Wisata: ');
+  readln(wisata.images);
+  
+  write('Masukkan URL Peta Wisata: ');
+  readln(wisata.maps);
+  
+  writeln;
+  writeln('Data Wisata yang ditambahkan:');
+  writeln('Nama: ', wisata.name);
+  writeln('Kategori: ', wisata.category);
+  writeln('Lokasi: ', wisata.location);
+  writeln('Deskripsi: ', wisata.description);
+  writeln('Rating: ', wisata.rating:1:1);
+  writeln('URL Gambar: ', wisata.images);
+  writeln('URL Peta: ', wisata.maps);
+end;
+
+
+
+# Briliana Zahra
+program DeleteDataWisata;
+
+type
+  TWisata = record
+    name: string;
+    category: string;
+    location: string;
+    description: string;
+    rating: real;
+    images: string;
+    maps: string;
+  end;
+
+var
+  wisata: TWisata;
+  dataDeleted: boolean;
+
+procedure DeleteWisata;
+var
+  konfirmasi: char;
+begin
+  if dataDeleted then
+  begin
+    writeln('Data wisata sudah dihapus.');
+    exit;
+  end;
+
+  writeln('Apakah Anda yakin ingin menghapus data wisata ini? (y/n)');
+  readln(konfirmasi);
+
+  if (konfirmasi = 'y') or (konfirmasi = 'Y') then
+  begin
+    // Menghapus data wisata dengan mengosongkan nilai-nilainya
+    wisata.name := '';
+    wisata.category := '';
+    wisata.location := '';
+    wisata.description := '';
+    wisata.rating := 0.0;
+    wisata.images := '';
+    wisata.maps := '';
+
+    dataDeleted := true;
+
+    writeln('Data wisata berhasil dihapus.');
+  end
+  else
+    writeln('Penghapusan data wisata dibatalkan.');
+end;
+
+begin
+  // Prosedur ini akan menghapus data wisata
+  DeleteWisata;
+end.
+
+
+Noval
