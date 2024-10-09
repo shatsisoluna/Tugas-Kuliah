@@ -206,4 +206,64 @@ begin
 end.
 
 
-Noval
+# Noval
+program CariDestinasi;
+
+type
+  TDestinasi = record
+    name: string;
+  end;
+
+var
+  destinasiList: array[1..5] of TDestinasi; // Contoh array destinasi
+  hasilPencarian: array of TDestinasi;
+  query: string;
+  i: integer;
+
+procedure TampilkanHasilPencarian(hasil: array of TDestinasi);
+begin
+  if Length(hasil) = 0 then
+  begin
+    writeln('Tidak ada hasil yang ditemukan.');
+  end
+  else
+  begin
+    writeln('Hasil pencarian:');
+    for i := Low(hasil) to High(hasil) do
+    begin
+      writeln(hasil[i].name); // Menampilkan nama destinasi
+    end;
+  end;
+end;
+
+procedure CariDestinasi(query: string);
+begin
+  SetLength(hasilPencarian, 0); // Mengosongkan hasil pencarian
+  
+  for i := 1 to Length(destinasiList) do
+  begin
+    if Pos(LowerCase(query), LowerCase(destinasiList[i].name)) > 0 then
+    begin
+      SetLength(hasilPencarian, Length(hasilPencarian) + 1);
+      hasilPencarian[High(hasilPencarian)] := destinasiList[i]; // Menyimpan hasil yang cocok
+    end;
+  end;
+
+  TampilkanHasilPencarian(hasilPencarian);
+end;
+
+begin
+  // Inisialisasi daftar destinasi
+  destinasiList[1].name := 'Bali';
+  destinasiList[2].name := 'Yogyakarta';
+  destinasiList[3].name := 'Jakarta';
+  destinasiList[4].name := 'Bandung';
+  destinasiList[5].name := 'Malang';
+
+  // Input query pencarian dari pengguna
+  write('Masukkan kata kunci pencarian: ');
+  readln(query);
+  
+  // Melakukan pencarian destinasi
+  CariDestinasi(query);
+end.
